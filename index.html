@@ -1,24 +1,514 @@
-<!doctype html>
-<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#101b2d"><title>Экспертные методы — подготовка к защите</title><style>
-:root{--bg:#f3f6fb;--ink:#142238;--muted:#62718a;--blue:#315efb;--line:#e1e8f2;--card:#fff;--nav:#101b2d;--mint:#dcf8ee;--pink:#fff1e8}*{box-sizing:border-box}body{margin:0;background:var(--bg);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink)}.top{background:radial-gradient(ellipse at 75% 0,#263c68,transparent 55%),var(--nav);color:white;padding:26px max(22px,calc((100% - 1160px)/2)) 44px}.brand{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#a9b9d5;font-weight:750}.hero{max-width:1160px;margin:auto}.top h1{font-size:clamp(30px,5vw,54px);line-height:1.08;letter-spacing:-.04em;margin:35px 0 12px;max-width:780px}.top p{color:#c3cee0;max-width:650px;margin:0}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}.chip{border:1px solid #ffffff30;border-radius:99px;padding:5px 11px;color:#d4def0;font-size:13px}.layout{max-width:1160px;margin:26px auto;padding:0 20px;display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px}.side{align-self:start;position:sticky;top:16px;background:white;border:1px solid var(--line);border-radius:16px;padding:14px}.side b{display:block;font-size:12px;color:var(--muted);padding:5px 10px 9px;text-transform:uppercase;letter-spacing:.07em}.side a{display:block;text-decoration:none;color:#53627a;padding:8px 10px;border-radius:9px;font-size:14px}.side a:hover,.side a.active{background:#edf2ff;color:var(--blue);font-weight:650}.content{min-width:0}.intro{background:var(--mint);border-radius:16px;padding:17px 20px;margin-bottom:18px;color:#175b48}.section-title{font-size:25px;letter-spacing:-.03em;margin:30px 0 12px}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:14px;box-shadow:0 3px 12px #1d34500a}.card h3{margin:0 0 9px;font-size:19px;letter-spacing:-.02em}.num{display:inline-flex;width:29px;height:29px;align-items:center;justify-content:center;background:#eaf0ff;color:var(--blue);border-radius:9px;font-size:13px;margin-right:8px}.card p{margin:8px 0}.dim{color:var(--muted)}.formula{background:#f4f6fb;border:1px solid var(--line);border-radius:10px;padding:12px 15px;margin:10px 0;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,monospace;font-size:14px}.example{background:var(--mint);padding:12px 15px;border-radius:10px;margin-top:12px;font-size:14px}.tip{background:var(--pink);padding:12px 15px;border-radius:10px;margin-top:12px;font-size:14px}.tablewrap{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:14px}td,th{padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}th{color:var(--muted);font-weight:650}.controls{display:flex;gap:9px;flex-wrap:wrap;margin:10px 0 15px}button{font:inherit;border:0;cursor:pointer}.tabbtn,.action{border-radius:10px;padding:9px 14px;background:#eaf0ff;color:#294fd6;font-weight:650}.tabbtn.on,.action.primary{background:var(--blue);color:white}.answer{display:none}.answer.show{display:block}.quizq{padding:16px 0;border-bottom:1px solid var(--line)}.quizq p{font-weight:650}.quizq label{display:block;padding:5px 0;color:#495970;cursor:pointer}.result{font-weight:700;margin-top:12px}.flash{min-height:150px;display:flex;flex-direction:column;justify-content:center;text-align:center;background:#f4f6fb;border-radius:14px;padding:24px;cursor:pointer}.flash small{color:var(--muted)}.flash strong{font-size:21px;margin:12px}.progress{height:6px;background:#e7ecf5;border-radius:8px;overflow:hidden;margin:14px 0}.progress i{display:block;height:100%;background:var(--blue);width:0}.footer{color:var(--muted);font-size:13px;padding:18px 0 60px}.hide{display:none!important}html{scroll-behavior:smooth;scroll-padding-top:20px}@media(max-width:800px){.layout{grid-template-columns:1fr;margin-top:15px}.side{position:static;display:flex;gap:4px;overflow-x:auto;white-space:nowrap;padding:8px}.side b{display:none}.side a{flex:0 0 auto}.top{padding:22px 20px 34px}.top h1{margin-top:28px}.card{padding:17px}.section-title{margin-top:24px}}
-</style></head><body>
-<header class="top"><div class="hero"><div class="brand">КАРТОЧКИ К ЗАЩИТЕ · ТЕМА 6</div><h1>Экспертные методы<br>оценивания и выбора</h1><p>Понятные объяснения, формулы, мини-примеры и тренировка по лекции «Моделирование сложных систем» Захаровой А. А.</p><div class="chips"><span class="chip">13 вопросов к защите</span><span class="chip">Теория + примеры</span><span class="chip">Работает офлайн</span></div></div></header>
-<div class="layout"><nav class="side"><b>Навигация</b><a href="#theory">Разобрать методы</a><a href="#answers">Короткие ответы</a><a href="#quiz">Проверить себя</a><a href="#cards">Карточки</a><a href="#remember">Шпаргалка</a></nav><main class="content"><div class="intro"><b>Как заниматься:</b> сначала разберись в методах, потом закрой подробности и попробуй ответить устно по короткому блоку. Главная идея темы: экспертное суждение превращают в числовую форму, а затем агрегируют и проверяют согласованность.</div>
-<h2 id="theory" class="section-title">Разобрать методы</h2>
-<article class="card"><h3><span class="num">1</span>Ранжирование и связанные ранги</h3><p><b>Ранжирование</b> — упорядочивание конечного набора объектов по предпочтительности на основе одного или нескольких признаков. Эксперт присваивает числовые обозначения так, чтобы они сохраняли порядок (монотонность). Обычно лучшему объекту дают ранг 1, далее по убыванию предпочтения номера растут. Ранг показывает только порядок, а не величину превосходства.</p><p><b>Связанные ранги</b> назначают равным по предпочтению объектам. Два способа: (а) одинаковый порядковый номер первой позиции группы — например, три равных объекта получают ранг 3; (б) среднее арифметическое занятых ими мест. Во втором способе ранги называют связанными: позиции 3, 4, 5 дают каждому ранг (3+4+5)/3=4; места 9 и 10 — по 9,5. Такой вариант сохраняет сумму всех рангов и удобен для обработки.</p><div class="example"><b>Пример.</b> Если варианты A и B одинаково хороши и занимают места 2 и 3, каждому присваиваем связанный ранг 2,5. Чем меньше ранг, тем выше предпочтение.</div><p>Для группы экспертов получают матрицу рангов: строки — объекты, столбцы — эксперты. Суммируют ранги каждого объекта (метод суммы мест) и сортируют суммы: меньшая сумма означает более предпочтительный объект. Это допустимо, если разницу между соседними рангами условно можно считать примерно одинаковой. Обычно ранжировать трудно больше 15–20 объектов.</p></article>
-<article class="card"><h3><span class="num">2</span>Согласованность: коэффициент конкордации W</h3><p>Коэффициент конкордации Кендалла показывает, насколько согласованно эксперты ранжируют объекты. Он не определяет «правильность» решения и не говорит, что именно предпочитают эксперты.</p><div class="formula">W = 12S / [d²(n³ − n) − d·ΣTₛ]<br>S = Σᵢ(Rᵢ − d(n+1)/2)²<br>Tₛ = Σₖ(hₖ³ − hₖ)</div><p><b>Обозначения:</b> d — число экспертов; n — число объектов; Rᵢ — сумма рангов i-го объекта у всех экспертов; средняя сумма рангов равна d(n+1)/2; hₖ — размер k-й группы связанных рангов у эксперта s. Если связанных рангов нет, Tₛ=0. W принимает значения от 0 до 1: 0 — согласованности практически нет, 1 — полное совпадение ранжировок; промежуточное значение — частичное согласие. Чем W ближе к 1, тем выше согласованность.</p><div class="tip"><b>Важно для ответа.</b> В лекции формула и принцип интерпретации приведены, но числовые границы категорий согласованности не указаны. Не выдавай условные пороги («слабая/средняя/высокая») за универсальные: они зависят от принятой шкалы; для статистической значимости отдельно проверяют гипотезу о согласии.</div><div class="example"><b>Интуитивно:</b> если эксперты отдают одни и те же объекты в верх списка, W велико; если предпочтения перемешаны — мало.</div></article>
-<article class="card"><h3><span class="num">3</span>Парное сравнение</h3><p>Эксперт рассматривает все возможные пары объектов и указывает, какой из двух предпочтительнее, либо что они эквивалентны. Это проще, чем сразу расставлять весь список, и даёт данные порядковой шкалы. Для n объектов рассматривается n(n−1)/2 пар.</p><p>Результаты записывают в матрицу. В булевом представлении cᵢⱼ=1, если i предпочитается j, иначе 0; диагональ cᵢᵢ=1 в соглашении лекции. Условия согласованности предпочтений: диагональ состоит из единиц; для различных i,j предпочтение взаимно исключает обратное (если cᵢⱼ=1, то cⱼᵢ=0); транзитивность — из cᵢⱼ=1 и cⱼₖ=1 следует cᵢₖ=1. Эквивалентность требует отдельного кодирования/соглашения, например отдельного значения или взаимных предпочтений по выбранным правилам.</p><div class="example"><b>Ранги по булевой матрице:</b> суммируем строку: чем больше побед (единиц), тем выше объект. Суммирование столбца даёт обратную картину: больше проигрышей — ниже объект. При равных суммах порядок может остаться неопределённым.</div><p><b>Числовые представления:</b> лекция подробно описывает булево кодирование 0/1. В лекции показаны два варианта: (1) cᵢⱼ=1, если xᵢ предпочтительнее или эквивалентен xⱼ, и 0, если он хуже; (2) 2 — если xᵢ предпочтительнее xⱼ, 1 — если они эквивалентны, 0 — если xᵢ хуже xⱼ. Поэтому во втором представлении равенство кодируется отдельно.</p><p><b>Обобщённая матрица группы:</b> каждый эксперт строит свою матрицу; для каждого элемента берут мнение большинства. В лекции это описано как медианная матрица по метрике Хэмминга — матрица, минимизирующая сумму поэлементных несовпадений со всеми экспертными матрицами. Элемент равен 1, если не менее половины экспертов поставили 1; при равенстве голосов нужно зафиксировать правило разрешения ничьей. Затем матрицы можно преобразовать в ранжировки и оценить согласованность через W.</p></article>
-<article class="card"><h3><span class="num">4</span>Непосредственное оценивание</h3><p>Эксперт сразу приписывает каждому объекту число на заданном отрезке числовой оси. Это измерение в интервальной шкале: различия оценок имеют смысл, равные объекты получают одинаковые числа. Используют, например, [0;1], 5-, 10- или 100-балльные шкалы; словесные категории можно заранее перевести в баллы.</p><p>При групповом оценивании сводят индивидуальные оценки осреднением. При одинаковой компетентности — среднее арифметическое: <span class="formula">aᵢ = (1/d) Σⱼ aᵢⱼ</span>Если компетентность экспертов различна — взвешенное среднее:</p><div class="formula">aᵢ = Σⱼ kⱼaᵢⱼ / Σⱼkⱼ<br>при нормированных весах Σⱼkⱼ = 1: aᵢ = Σⱼkⱼaᵢⱼ</div><p>Здесь aᵢⱼ — оценка объекта i экспертом j, kⱼ — вес его компетентности. В лекции kⱼ указаны в диапазоне [0,1]; условие нормировки: сумма весов всех экспертов равна единице.</p><div class="example"><b>Пример:</b> два эксперта поставили 0,8 и 0,6. При равных весах итог (0,8+0,6)/2=0,7. Если веса 0,75 и 0,25, итог 0,75·0,8+0,25·0,6=0,75.</div><p><b>Согласованность экспертов:</b> можно оценивать разбросом оценок — например, дисперсией или стандартным отклонением по каждому объекту. Малый разброс означает близкие оценки; большой — расхождение, требующее обсуждения. Для порядковых рангов применяют W, но для непосредственных числовых оценок W напрямую не подходит. Конкретная формула/критерий согласия зависит от шкалы и методики.</p></article>
-<article class="card"><h3><span class="num">5</span>Последовательное сравнение (Черчмена—Акоффа)</h3><p>Метод нужен, когда интегральная оценка альтернатив строится из нескольких частных критериев и требуется определить их относительные веса на основе экспертных сравнений. В отличие от ранжирования, эксперт не просто ставит места: он проверяет, согласуются ли предпочтения с выбранной взвешенной суммой, и при необходимости пересматривает веса/оценки.</p><p><b>Операции по лекции:</b></p><ol><li>Эксперт ранжирует объекты.</li><li>Оценивает объекты на отрезке [0;1], принимая оценку первого объекта за 1.</li><li>Решает, предпочтительнее ли первый объект всех остальных вместе. Если да, увеличивает его оценку так, чтобы она была больше суммы оценок остальных; если нет — изменяет её так, чтобы она была меньше этой суммы.</li><li>Аналогично сравнивает второй объект со всеми последующими вместе взятыми и корректирует его оценку.</li><li>Последовательно выполняет сравнение для следующих объектов, корректируя их оценки по суждению о предпочтении.</li><li>Повторяет проверки и корректировки, пока не будут выполнены условия предпочтения.</li></ol><p>В лекционном примере после первой итерации оценка первого объекта изменилась с 1 до 2,5, оценки других объектов также уточнялись. Затем оценки нормировали к [0;1], разделив на наибольшую (2,5).</p><div class="formula">При нормировании итоговых оценок: f′(xᵢ) = f(xᵢ) / maxᵢ f(xᵢ)</div><div class="tip"><b>Уточнение по лекции.</b> Условие сравнения первых объектов с суммой последующих дано явно; далее эксперт корректирует оценки согласно своим предпочтениям и повторяет операции до выполнения условий. Метод объединяет ранжирование и непосредственную оценку.</div></article>
-<h2 id="answers" class="section-title">Ответы на вопросы — коротко</h2><p class="dim">Это компактный вариант для устного ответа. Нажми на вопрос, чтобы раскрыть/свернуть ответ.</p><div id="answersList"></div>
-<h2 id="quiz" class="section-title">Проверить себя</h2><div class="card"><p class="dim">Выбери по одному ответу. Результат можно проверять повторно.</p><div id="quizbox"></div><button class="action primary" onclick="grade()">Проверить ответы</button><div id="score" class="result"></div></div>
-<h2 id="cards" class="section-title">Карточки для повторения</h2><div class="card"><div class="progress"><i id="bar"></i></div><div class="flash" id="flash" onclick="flip()"><small id="fcnum"></small><strong id="fctext"></strong><span class="dim" id="fcsub">Нажми, чтобы увидеть ответ</span></div><div class="controls"><button class="action" onclick="prev(event)">← Назад</button><button class="action primary" onclick="next(event)">Дальше →</button><button class="action" onclick="shuffle()">Перемешать</button></div></div>
-<h2 id="remember" class="section-title">Шпаргалка в одну минуту</h2><div class="card"><div class="tablewrap"><table><thead><tr><th>Метод</th><th>Что делает</th><th>Что получается</th></tr></thead><tbody><tr><td>Ранжирование</td><td>Упорядочивает сразу весь набор</td><td>Ранги; сумма мест для группы</td></tr><tr><td>Парное сравнение</td><td>Сравнивает объекты попарно</td><td>Матрица побед/предпочтений</td></tr><tr><td>Непосредственная оценка</td><td>Ставит числовой балл каждому</td><td>Оценки; среднее или взвешенное</td></tr><tr><td>Последовательное сравнение</td><td>Подбирает веса критериев через суждения</td><td>Весовая модель и интегральный порядок</td></tr></tbody></table></div><p><b>Памятка по формулам:</b> сумма рангов — меньше лучше; строковая сумма булевой матрицы — больше побед; W ближе к 1 — больше согласия; компетентностные веса суммируются в 1.</p></div>
-<div class="footer">Основа: приложенный файл «Лекция 4. Моделирование сложных систем.pdf», раздел 6.2 «Методы субъективных измерений в условиях определенности», слайды 116–132. Дополнено пояснениями формул и примерами. В лекции запись «m» местами используется для числа экспертов, а «n» — для числа объектов; здесь обозначения унифицированы: d экспертов, n объектов.</div></main></div>
-<script>
-const qa=[['1. Суть метода ранжирования','Ранжирование — это упорядочение объектов по предпочтению эксперта с присвоением им числовых рангов. Наиболее предпочтительному объекту обычно присваивают ранг 1.'],['2. Что такое связанные ранги и способы их назначения?','Связанные ранги назначают равным по предпочтению объектам. Им можно присвоить одинаковый порядковый номер или среднее арифметическое занятых мест; во втором случае, например, места 3, 4 и 5 дают каждому ранг 4.'],['3. Как определяется обобщённая оценка при групповом ранжировании?','Ранги каждого объекта, присвоенные экспертами, складывают. Обобщённый порядок определяют по суммам рангов: меньшая сумма означает более высокий приоритет.'],['4. Для чего служит коэффициент конкордации? Каков диапазон и как его интерпретировать?','Коэффициент конкордации W оценивает согласованность экспертных ранжировок. Он лежит от 0 до 1: 0 означает отсутствие согласованности, 1 — полное совпадение ранжировок; чем ближе W к 1, тем выше согласованность.'],['5. Суть метода парного сравнения','При парном сравнении эксперт устанавливает предпочтение между каждой парой объектов или признаёт их эквивалентными.'],['6. Какие числовые представления используют в матрицах парных сравнений? Каковы условия согласованности?','В лекции приведены два кодирования: 1/0 (предпочтительнее или эквивалентен — 1, хуже — 0) и 2/1/0 (предпочтительнее — 2, эквивалентен — 1, хуже — 0). Матрица согласована, если cᵢᵢ=1, предпочтение пары отражается обратным образом в cⱼᵢ, а предпочтения транзитивны: из cᵢⱼ=1 и cⱼₖ=1 следует cᵢₖ=1.'],['7. Как определить ранги по матрице парных сравнений?','В матрице суммируют элементы строк: чем больше сумма, тем выше ранг объекта. При суммировании столбцов большая сумма означает более низкий ранг.'],['8. Как построить обобщённую матрицу парных сравнений?','Для каждого элемента матрицы принимают мнение большинства экспертов. Полученная медианная матрица минимизирует сумму расстояний Хэмминга до матриц отдельных экспертов.'],['9. Суть метода непосредственного оценивания','Эксперт непосредственно приписывает каждому объекту числовое значение на заданном отрезке или балльной шкале; равным объектам назначаются одинаковые оценки.'],['10. Как рассчитывается агрегированная оценка при групповом непосредственном оценивании?','Обобщённую оценку получают осреднением индивидуальных оценок: обычно средним арифметическим, а при разных весах компетентности — средневзвешенным.'],['11. Каково условие нормировки весов компетентности экспертов?','Веса компетентности экспертов должны быть нормированы так, чтобы их сумма равнялась единице: Σⱼkⱼ=1.'],['12. Как оценивается согласованность экспертов при непосредственном оценивании?','Согласованность оценивают по разбросу непосредственных числовых оценок экспертов; чем меньше разброс, тем выше согласованность.'],['13. Метод последовательного сравнения: этапы и операции','Метод Черчмена—Акоффа объединяет ранжирование и непосредственную оценку. Эксперт ранжирует объекты, оценивает их на [0;1] (первый получает 1), проверяет предпочтение первого объекта относительно суммы остальных оценок и корректирует оценку; затем так же сравнивает второй объект с последующими, продолжает для остальных и повторяет операции до выполнения условий предпочтения. Итоговые оценки нормируют к [0;1].']]
-const a=document.getElementById('answersList'); qa.forEach(([q,x])=>{let e=document.createElement('div');e.className='card';e.innerHTML=`<h3 style="cursor:pointer" onclick="this.nextElementSibling.classList.toggle('show')">${q} <span class="dim" style="float:right">＋</span></h3><div class="answer"><p>${x}</p></div>`;a.appendChild(e)});
-const quiz=[['Сколько показывают ранги?',['Точную разницу между объектами','Только порядок предпочтения','Вес критерия'],1],['При методе суммы мест лучший объект обычно имеет…',['Наибольшую сумму','Наименьшую сумму','Любую сумму'],1],['Что означает W=1?',['Полное совпадение ранжировок','Нет согласия','Один эксперт'],0],['В булевой матрице больше единиц в строке означает…',['Больше побед','Больше проигрышей','Ничего'],0],['Нормированные веса компетентности в сумме дают…',['0','1','100'],1],['Чем агрегируют оценки при разных весах экспертов?',['Взвешенным средним','Медианой рангов всегда','Коэффициентом W'],0]];const qb=document.getElementById('quizbox');quiz.forEach((q,i)=>{qb.innerHTML+=`<div class="quizq"><p>${i+1}. ${q[0]}</p>${q[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${o}</label>`).join('')}</div>`});function grade(){let s=0,done=0;quiz.forEach((q,i)=>{let x=document.querySelector(`input[name=q${i}]:checked`);if(x){done++;if(+x.value===q[2])s++}});document.getElementById('score').textContent=done<quiz.length?`Отвечено ${done} из ${quiz.length}. Выбери вариант в каждом вопросе.`:`Результат: ${s} из ${quiz.length}. ${s===quiz.length?'Отлично — всё верно!':s>=4?'Хорошая база. Повтори вопросы с ошибками.':'Повтори карточки и попробуй ещё раз.'}`}
-let deck=qa.map(x=>[x[0],x[1]]),idx=0,back=false;function render(){document.getElementById('fcnum').textContent=`Карточка ${idx+1} из ${deck.length}`;document.getElementById('fctext').textContent=back?deck[idx][1]:deck[idx][0];document.getElementById('fcsub').textContent=back?'Нажми, чтобы снова увидеть вопрос':'Нажми, чтобы увидеть ответ';document.getElementById('bar').style.width=((idx+1)/deck.length*100)+'%'}function flip(){back=!back;render()}function next(e){if(e)e.stopPropagation();idx=(idx+1)%deck.length;back=false;render()}function prev(e){if(e)e.stopPropagation();idx=(idx+deck.length-1)%deck.length;back=false;render()}function shuffle(){deck.sort(()=>Math.random()-.5);idx=0;back=false;render()}render();
-const links=[...document.querySelectorAll('.side a')];window.addEventListener('scroll',()=>{let id='';for(const el of document.querySelectorAll('h2[id]'))if(el.getBoundingClientRect().top<180)id=el.id;links.forEach(a=>a.classList.toggle('active',a.hash==='#'+id))});
-</script></body></html>
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Системный Анализ — Экспертные методы и подготовка к защите</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎯</text></svg>">
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#eef2ff',
+              100: '#e0e7ff',
+              200: '#c7d2fe',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- KaTeX for beautiful math formulas -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <!-- Canvas Confetti CDN -->
+  <script defer src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 min-h-screen flex flex-col font-sans antialiased selection:bg-indigo-500 selection:text-white">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-700 text-white text-xs py-1.5 px-4 text-center font-medium shadow-inner flex items-center justify-center gap-2">
+    <span>🎓 ТУСУР • Системный анализ • Подготовка к защите проекта и ответам на вопросы</span>
+    <span class="hidden md:inline bg-white/20 px-2 py-0.5 rounded text-[11px]">Лектор: Захарова А.А., д.т.н.</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-500 flex items-center justify-center text-white font-bold text-xl shadow-md shadow-indigo-500/20">
+          ∑
+        </div>
+        <div>
+          <h1 class="text-base md:text-lg font-black tracking-tight text-slate-900 dark:text-white leading-tight">
+            Системный Анализ <span class="text-indigo-600 dark:text-indigo-400">Эксперт</span>
+          </h1>
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Методы субъективных измерений и принятия решений
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Search & Actions -->
+      <div class="flex items-center gap-2">
+        <div class="relative hidden sm:block w-48 md:w-64">
+          <input 
+            type="text" 
+            id="global-search" 
+            placeholder="Поиск по 13 вопросам..." 
+            class="w-full text-xs bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white"
+          >
+          <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button id="theme-toggle" title="Переключить тему" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+          <svg class="w-5 h-5 dark:hidden" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"/>
+          </svg>
+          <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+
+        <!-- Print Button -->
+        <button onclick="window.print()" title="Печать шпаргалки" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition hidden md:block">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop Navigation Tabs -->
+    <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100 dark:border-slate-800 hidden sm:flex space-x-6">
+      <button data-tab-target="cheatsheet" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm transition flex items-center gap-1.5 active border-indigo-600 text-indigo-600 dark:border-indigo-400 dark:text-indigo-400">
+        <span>⚡ Шпаргалка к защите (13 вопросов)</span>
+      </button>
+      <button data-tab-target="theory" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
+        <span>📚 Полная база знаний</span>
+      </button>
+      <button data-tab-target="calculators" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
+        <span>🧮 Интерактивные калькуляторы</span>
+      </button>
+      <button data-tab-target="flashcards" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
+        <span>🃏 Флэш-карточки</span>
+      </button>
+      <button data-tab-target="quiz" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
+        <span>📝 Экзаменационный тренажер</span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 mb-16 sm:mb-8">
+
+    <!-- Progress & Motivation Bar -->
+    <div class="no-print bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700 mb-6 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Прогресс готовности к защите</span>
+        </div>
+        <p id="overall-progress-text" class="text-sm font-semibold text-slate-700 dark:text-slate-200 mt-0.5">
+          0/13 вопросов изучено
+        </p>
+      </div>
+      <div class="w-full md:w-64 bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
+        <div id="overall-progress-bar" class="bg-gradient-to-r from-indigo-500 to-emerald-500 h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- TAB 1: CHEAT SHEET (13 QUESTIONS) -->
+    <section id="tab-cheatsheet" class="tab-pane">
+      <div class="mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+        <div>
+          <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+            Шпаргалка: 13 вопросов к защите
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+            Выжимка сути без воды, прямые вырезки из лекций (как есть), готовые формулировки своими словами, формулы и разборы каверзных вопросов.
+          </p>
+        </div>
+        <div class="sm:hidden w-full">
+          <input 
+            type="text" 
+            oninput="document.getElementById('global-search').value = this.value; document.getElementById('global-search').dispatchEvent(new Event('input'))"
+            placeholder="Поиск по вопросам..." 
+            class="w-full text-xs bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2"
+          >
+        </div>
+      </div>
+
+      <!-- Quick Index of Questions -->
+      <div class="no-print bg-indigo-50/50 dark:bg-slate-800/40 border border-indigo-100 dark:border-slate-700/60 rounded-xl p-3.5 mb-6 text-xs flex flex-wrap gap-2">
+        <span class="font-bold text-slate-700 dark:text-slate-300 mr-1 flex items-center">Быстрый переход:</span>
+        <a href="#question-1" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">1. Ранжирование</a>
+        <a href="#question-2" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">2. Связные ранги</a>
+        <a href="#question-3" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">3. Групповое ранжирование</a>
+        <a href="#question-4" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">4. Коэф. конкордации</a>
+        <a href="#question-5" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">5. Парное сравнение</a>
+        <a href="#question-6" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">6. Матрицы и условия</a>
+        <a href="#question-7" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">7. Ранги из матрицы</a>
+        <a href="#question-8" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">8. Обобщенная матрица</a>
+        <a href="#question-9" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">9. Непосредственная оценка</a>
+        <a href="#question-10" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">10. Агрегирование оценок</a>
+        <a href="#question-11" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">11. Нормировка весов</a>
+        <a href="#question-12" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">12. Согласованность оценок</a>
+        <a href="#question-13" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">13. Черчмен-Акофф</a>
+      </div>
+
+      <!-- Questions List -->
+      <div id="questions-container">
+        <!-- Rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 2: FULL THEORY -->
+    <section id="tab-theory" class="tab-pane hidden">
+      <div class="mb-5">
+        <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+          Полная база знаний по курсу системного анализа
+        </h2>
+        <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+          Сводный конспект всех 5 лекций проф. Захаровой А.А. и учебных пособий ТУСУР (Силич М.П., Кориков А.М.).
+        </p>
+      </div>
+      <div id="theory-container">
+        <!-- Rendered via app.js -->
+      </div>
+    </section>
+
+    <!-- TAB 3: INTERACTIVE CALCULATORS -->
+    <section id="tab-calculators" class="tab-pane hidden space-y-8">
+      <div>
+        <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+          Интерактивная лаборатория: 4 живых калькулятора
+        </h2>
+        <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+          Проверьте расчеты своими руками! Вводите реальные матрицы, вычисляйте конкордацию, находите медиану Кемени и моделируйте метод Черчмена-Акоффа.
+        </p>
+      </div>
+
+      <!-- CALC 1: Concordance -->
+      <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 flex items-center justify-center text-sm font-black">1</span>
+              Ранжирование & Коэффициент конкордации Кендалла (K)
+            </h3>
+            <p class="text-xs text-slate-500">Автоматический расчет сумм рангов, поправок на связки $T_s$, коэффициента $K$ и критерия $\chi^2$</p>
+          </div>
+          <button id="calc1-load-example-btn" class="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-semibold border border-indigo-200 dark:border-indigo-800 transition">
+            📂 Загрузить пример из лекции (слайд 120)
+          </button>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Число экспертов (m):</label>
+            <input type="number" id="calc1-m" min="2" max="10" value="3" class="w-full border rounded-lg p-2 text-sm dark:bg-slate-900 dark:border-slate-700 text-center font-mono">
+          </div>
+          <div>
+            <label class="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">Число объектов (n):</label>
+            <input type="number" id="calc1-n" min="3" max="12" value="7" class="w-full border rounded-lg p-2 text-sm dark:bg-slate-900 dark:border-slate-700 text-center font-mono">
+          </div>
+          <div class="col-span-2 flex items-end">
+            <button id="calc1-compute-btn" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs md:text-sm font-bold shadow-md shadow-indigo-600/20 transition">
+              Рассчитать конкордацию и обобщенный ранг
+            </button>
+          </div>
+        </div>
+
+        <div id="calc1-grid-container" class="overflow-x-auto my-3"></div>
+        <div id="calc1-results"></div>
+      </div>
+
+      <!-- CALC 2: Pairwise Comparison Matrix -->
+      <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 flex items-center justify-center text-sm font-black">2</span>
+              Матрица парных сравнений и проверка транзитивности
+            </h3>
+            <p class="text-xs text-slate-500">Кликайте по ячейкам для изменения предпочтений. Система автоматически посчитает ранги и проверит на парадоксы циклов</p>
+          </div>
+          <div class="flex items-center gap-2">
+            <label class="text-xs font-semibold">Размер:</label>
+            <select id="calc2-size" class="text-xs border rounded p-1.5 dark:bg-slate-900 dark:border-slate-700">
+              <option value="3">3 объекта</option>
+              <option value="4" selected>4 объекта</option>
+              <option value="5">5 объектов</option>
+            </select>
+          </div>
+        </div>
+
+        <div id="calc2-matrix-container" class="overflow-x-auto my-3"></div>
+        <div id="calc2-results"></div>
+      </div>
+
+      <!-- CALC 3: Direct Rating -->
+      <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 flex items-center justify-center text-sm font-black">3</span>
+              Непосредственное оценивание, веса компетентности и коэф. вариации
+            </h3>
+            <p class="text-xs text-slate-500">Расчет простой средней, взвешенной агрегированной оценки и проверка согласованности по правилу $V \le 33\%$</p>
+          </div>
+          <button id="calc3-norm-weights-btn" class="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900 text-emerald-700 dark:text-emerald-300 rounded-lg text-xs font-semibold border border-emerald-200 dark:border-emerald-800 transition">
+            ⚖️ Нормировать веса (∑ k_j = 1)
+          </button>
+        </div>
+
+        <!-- Matrix with weights -->
+        <div class="overflow-x-auto my-3">
+          <table class="min-w-full text-xs text-center border">
+            <thead class="bg-slate-100 dark:bg-slate-700">
+              <tr>
+                <th class="p-2 border">Эксперт</th>
+                <th class="p-2 border font-bold text-indigo-600">Вес компетентности $k_j$</th>
+                <th class="p-2 border">Объект x1</th>
+                <th class="p-2 border">Объект x2</th>
+                <th class="p-2 border">Объект x3</th>
+                <th class="p-2 border">Объект x4</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-2 border font-medium">Эксперт 1</td>
+                <td class="p-2 border"><input type="number" step="0.05" min="0" max="1" value="0.5" class="calc3-w w-16 text-center border rounded p-1 dark:bg-slate-900 font-mono"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.8" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="0" data-obj="0"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.6" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="0" data-obj="1"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.9" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="0" data-obj="2"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.4" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="0" data-obj="3"></td>
+              </tr>
+              <tr>
+                <td class="p-2 border font-medium">Эксперт 2</td>
+                <td class="p-2 border"><input type="number" step="0.05" min="0" max="1" value="0.3" class="calc3-w w-16 text-center border rounded p-1 dark:bg-slate-900 font-mono"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.7" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="1" data-obj="0"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.5" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="1" data-obj="1"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.85" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="1" data-obj="2"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.5" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="1" data-obj="3"></td>
+              </tr>
+              <tr>
+                <td class="p-2 border font-medium">Эксперт 3</td>
+                <td class="p-2 border"><input type="number" step="0.05" min="0" max="1" value="0.2" class="calc3-w w-16 text-center border rounded p-1 dark:bg-slate-900 font-mono"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.75" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="2" data-obj="0"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.65" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="2" data-obj="1"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.8" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="2" data-obj="2"></td>
+                <td class="p-2 border"><input type="number" step="0.1" value="0.45" class="calc3-score w-14 text-center border rounded p-1 dark:bg-slate-900" data-expert="2" data-obj="3"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <button id="calc3-compute-btn" class="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs md:text-sm font-bold shadow-md shadow-indigo-600/20 transition">
+          Рассчитать средние и вариацию
+        </button>
+
+        <div id="calc3-results"></div>
+      </div>
+
+      <!-- CALC 4: Churchman-Ackoff Simulator -->
+      <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+          <div>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300 flex items-center justify-center text-sm font-black">4</span>
+              Симулятор метода Черчмена-Акоффа (Последовательное сравнение)
+            </h3>
+            <p class="text-xs text-slate-500">Интерактивная подгонка весов при сравнении объекта с суммой всех последующих (Пример со слайдов 130–131)</p>
+          </div>
+          <button id="ca-reset-btn" class="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold transition">
+            🔄 Сбросить к исходным
+          </button>
+        </div>
+
+        <div class="p-4 bg-indigo-50/70 dark:bg-indigo-950/40 rounded-xl border border-indigo-200 dark:border-indigo-800 text-xs md:text-sm text-slate-800 dark:text-slate-200 leading-relaxed mb-4">
+          <p id="ca-step-text" class="mb-3 font-medium">Загрузка шага...</p>
+          
+          <div class="flex flex-wrap gap-2">
+            <button id="ca-greater-btn" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition">
+              Да, превосходит: x_k > ∑(x_остальные)
+            </button>
+            <button id="ca-less-btn" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-lg text-xs font-bold transition">
+              Нет, уступает: x_k < ∑(x_остальные)
+            </button>
+            <button id="ca-equal-btn" class="px-4 py-2 bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-800 dark:text-slate-200 rounded-lg text-xs font-bold transition">
+              Они равны: x_k = ∑(x_остальные)
+            </button>
+          </div>
+        </div>
+
+        <div id="ca-table-display"></div>
+      </div>
+    </section>
+
+    <!-- TAB 4: FLASHCARDS -->
+    <section id="tab-flashcards" class="tab-pane hidden">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-6">
+          <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+            Карточки для быстрого запоминания
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Нажимайте на карточку, чтобы перевернуть. Тренируйте память перед заходом в аудиторию!
+          </p>
+        </div>
+
+        <!-- Flashcard Viewport -->
+        <div class="perspective-1000 w-full h-80 my-4 cursor-pointer" id="flashcard">
+          <div id="flashcard-inner" class="flashcard-inner relative w-full h-full text-center">
+            
+            <!-- Front -->
+            <div class="absolute w-full h-full backface-hidden bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-900/60 rounded-2xl shadow-lg p-6 flex flex-col justify-between items-center">
+              <span id="flashcard-category" class="px-3 py-1 rounded-full text-xs font-bold bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+                Категория
+              </span>
+              <div id="flashcard-front" class="flex-1 flex items-center justify-center p-2">
+                Вопрос карточки
+              </div>
+              <div class="text-xs text-slate-400 flex items-center gap-1">
+                <span>Нажмите, чтобы увидеть ответ</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              </div>
+            </div>
+
+            <!-- Back -->
+            <div class="absolute w-full h-full backface-hidden rotate-y-180 bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-slate-800 dark:to-indigo-950 border-2 border-indigo-400 dark:border-indigo-600 rounded-2xl shadow-lg p-6 flex flex-col justify-between items-center overflow-y-auto">
+              <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 uppercase tracking-wider">
+                ✓ Ответ и суть
+              </span>
+              <div id="flashcard-back" class="flex-1 flex items-center justify-center p-2 text-left">
+                Ответ карточки
+              </div>
+              <div class="text-xs text-slate-500 dark:text-slate-400">
+                Нажмите, чтобы перевернуть обратно
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-between gap-2 mt-6">
+          <button id="flashcard-prev" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs md:text-sm font-semibold transition">
+            ← Назад
+          </button>
+          <div class="flex items-center gap-2">
+            <button id="flashcard-flip-btn" class="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs md:text-sm font-semibold transition">
+              Перевернуть 🔄
+            </button>
+            <button id="flashcard-known-btn" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs md:text-sm font-semibold transition">
+              Отметить: знаю
+            </button>
+            <button id="flashcard-shuffle-btn" title="Перемешать карточки" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+              🔀
+            </button>
+          </div>
+          <button id="flashcard-next" class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs md:text-sm font-semibold transition">
+            Вперед →
+          </button>
+        </div>
+
+        <p id="flashcard-progress-text" class="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
+          Карточка 1 из 15
+        </p>
+      </div>
+    </section>
+
+    <!-- TAB 5: QUIZ -->
+    <section id="tab-quiz" class="tab-pane hidden">
+      <div class="max-w-2xl mx-auto">
+        <div class="text-center mb-6">
+          <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+            Экзаменационный тренажер
+          </h2>
+          <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1">
+            Проверьте, насколько уверенно вы сможете ответить на реальные вопросы преподавателя. Мгновенная проверка с объяснением!
+          </p>
+        </div>
+
+        <div id="quiz-container">
+          <!-- Rendered via app.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <div class="sm:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-t border-slate-200 dark:border-slate-800 flex justify-around py-2 px-1 text-[10px] font-medium no-print">
+    <button data-tab-target="cheatsheet" class="flex flex-col items-center gap-0.5 text-indigo-600 dark:text-indigo-400 active">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      <span>Шпаргалка</span>
+    </button>
+    <button data-tab-target="theory" class="flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+      <span>Теория</span>
+    </button>
+    <button data-tab-target="calculators" class="flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"/></svg>
+      <span>Калькуляторы</span>
+    </button>
+    <button data-tab-target="flashcards" class="flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+      <span>Карточки</span>
+    </button>
+    <button data-tab-target="quiz" class="flex flex-col items-center gap-0.5 text-slate-500 dark:text-slate-400">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <span>Тест</span>
+    </button>
+  </div>
+
+  <!-- Footer -->
+  <footer class="no-print border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-6 text-center text-xs text-slate-500 dark:text-slate-400">
+    <div class="max-w-6xl mx-auto px-4">
+      <p class="font-medium text-slate-700 dark:text-slate-300">
+        Учебное веб-приложение для подготовки к защите по курсу «Системный анализ»
+      </p>
+      <p class="mt-1">
+        Материалы: ТУСУР, каф. АОИ • Лектор: д.т.н., проф. Захарова А.А. • Учебное пособие: Силич М.П., Силич В.А.
+      </p>
+      <p class="mt-2 text-slate-400 dark:text-slate-500">
+        Разработано без серверного бэкенда для мгновенного развертывания на GitHub Pages.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
