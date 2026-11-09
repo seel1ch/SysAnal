@@ -1,4 +1,4 @@
-/* Custom styles for System Analysis Prep App */
+/* Custom styles for System Analysis Prep App (TUSUR) */
 
 @layer utilities {
   .perspective-1000 {
@@ -53,21 +53,4 @@
 }
 .flashcard-inner.flipped {
   transform: rotateY(180deg);
-}
-
-/* Print styling for cheat-sheet export */
-@media print {
-  header, nav, #quick-search-box, .no-print {
-    display: none !important;
-  }
-  body {
-    background: white !important;
-    color: black !important;
-  }
-  .card-print {
-    break-inside: avoid;
-    border: 1px solid #ccc !important;
-    box-shadow: none !important;
-    margin-bottom: 1.5rem !important;
-  }
 }

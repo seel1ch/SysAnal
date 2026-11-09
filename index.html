@@ -69,8 +69,8 @@
           <h1 class="text-base md:text-lg font-black tracking-tight text-slate-900 dark:text-white leading-tight">
             Системный Анализ <span class="text-indigo-600 dark:text-indigo-400">Эксперт</span>
           </h1>
-          <p class="text-xs text-slate-500 dark:text-slate-400">
-            Методы субъективных измерений и принятия решений
+          <p id="header-subtitle" class="text-xs text-slate-500 dark:text-slate-400">
+            Нечеткие множества и алгоритм вывода Мамдани
           </p>
         </div>
       </div>
@@ -80,8 +80,7 @@
         <div class="relative hidden sm:block w-48 md:w-64">
           <input 
             type="text" 
-            id="global-search" 
-            placeholder="Поиск по 13 вопросам..." 
+            id="global-search" placeholder="Поиск по 12 вопросам..." 
             class="w-full text-xs bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg pl-8 pr-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-900 dark:text-white"
           >
           <svg class="w-3.5 h-3.5 text-slate-400 absolute left-2.5 top-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,26 +97,19 @@
             <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"/>
           </svg>
         </button>
-
-        <!-- Print Button -->
-        <button onclick="window.print()" title="Печать шпаргалки" class="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 transition hidden md:block">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
-          </svg>
-        </button>
       </div>
     </div>
 
     <!-- Desktop Navigation Tabs -->
     <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-100 dark:border-slate-800 hidden sm:flex space-x-6">
       <button data-tab-target="cheatsheet" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm transition flex items-center gap-1.5 active border-indigo-600 text-indigo-600 dark:border-indigo-400 dark:text-indigo-400">
-        <span>⚡ Шпаргалка к защите (13 вопросов)</span>
+        <span id="nav-cheatsheet-label">⚡ Шпаргалка к защите (12 вопросов)</span>
       </button>
       <button data-tab-target="theory" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
         <span>📚 Полная база знаний</span>
       </button>
       <button data-tab-target="calculators" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
-        <span>🧮 Интерактивные калькуляторы</span>
+        <span id="nav-calc-label">🧮 Интерактивные симуляторы (2)</span>
       </button>
       <button data-tab-target="flashcards" class="py-3 px-1 border-b-2 font-medium text-xs md:text-sm border-transparent text-slate-500 hover:text-slate-700 dark:text-slate-400 transition flex items-center gap-1.5">
         <span>🃏 Флэш-карточки</span>
@@ -127,6 +119,28 @@
       </button>
     </nav>
   </header>
+
+  <!-- Practical Work Switcher Bar -->
+  <div class="no-print bg-slate-100/90 dark:bg-slate-800/80 border-b border-slate-200 dark:border-slate-700/80 backdrop-blur py-2.5">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div class="flex items-center gap-2 self-start sm:self-center">
+          <span class="text-xs font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">Практикум:</span>
+        </div>
+        <div class="w-full sm:w-auto inline-flex p-1 bg-slate-200/80 dark:bg-slate-900/80 rounded-xl border border-slate-300/60 dark:border-slate-700 gap-1">
+          <button id="pr-toggle-3" data-pr="pr3" class="pr-toggle-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs md:text-sm font-semibold flex items-center justify-center gap-2 transition duration-200 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+            <span class="w-5 h-5 rounded-md bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-[11px] font-black">№3</span>
+            <span>Практическая №3: Экспертные оценки и шкалы (13 вопросов)</span>
+          </button>
+          <button id="pr-toggle-4" data-pr="pr4" class="pr-toggle-btn flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs md:text-sm font-bold flex items-center justify-center gap-2 transition duration-200 bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm">
+            <span class="w-5 h-5 rounded-md bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center text-[11px] font-black">№4</span>
+            <span>Практическая №4: Нечеткие множества и алгоритм Мамдани (12 вопросов)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Main Content Area -->
   <main class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 mb-16 sm:mb-8">
@@ -138,7 +152,7 @@
           <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Прогресс готовности к защите</span>
         </div>
         <p id="overall-progress-text" class="text-sm font-semibold text-slate-700 dark:text-slate-200 mt-0.5">
-          0/13 вопросов изучено
+          0/12 вопросов изучено
         </p>
       </div>
       <div class="w-full md:w-64 bg-slate-100 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
@@ -150,8 +164,8 @@
     <section id="tab-cheatsheet" class="tab-pane">
       <div class="mb-5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
-            Шпаргалка: 13 вопросов к защите
+          <h2 id="cheatsheet-heading" class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+            Шпаргалка: 12 вопросов к защите (Практика 4: Нечеткие множества)
           </h2>
           <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
             Выжимка сути без воды, прямые вырезки из лекций (как есть), готовые формулировки своими словами, формулы и разборы каверзных вопросов.
@@ -168,21 +182,9 @@
       </div>
 
       <!-- Quick Index of Questions -->
-      <div class="no-print bg-indigo-50/50 dark:bg-slate-800/40 border border-indigo-100 dark:border-slate-700/60 rounded-xl p-3.5 mb-6 text-xs flex flex-wrap gap-2">
+      <div id="quick-index-container" class="no-print bg-indigo-50/50 dark:bg-slate-800/40 border border-indigo-100 dark:border-slate-700/60 rounded-xl p-3.5 mb-6 text-xs flex flex-wrap items-center gap-2">
         <span class="font-bold text-slate-700 dark:text-slate-300 mr-1 flex items-center">Быстрый переход:</span>
-        <a href="#question-1" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">1. Ранжирование</a>
-        <a href="#question-2" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">2. Связные ранги</a>
-        <a href="#question-3" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">3. Групповое ранжирование</a>
-        <a href="#question-4" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">4. Коэф. конкордации</a>
-        <a href="#question-5" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">5. Парное сравнение</a>
-        <a href="#question-6" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">6. Матрицы и условия</a>
-        <a href="#question-7" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">7. Ранги из матрицы</a>
-        <a href="#question-8" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">8. Обобщенная матрица</a>
-        <a href="#question-9" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">9. Непосредственная оценка</a>
-        <a href="#question-10" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">10. Агрегирование оценок</a>
-        <a href="#question-11" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">11. Нормировка весов</a>
-        <a href="#question-12" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">12. Согласованность оценок</a>
-        <a href="#question-13" class="px-2 py-1 bg-white dark:bg-slate-700 rounded border hover:border-indigo-500 transition">13. Черчмен-Акофф</a>
+        <div id="quick-index-pills" class="flex flex-wrap gap-2"></div>
       </div>
 
       <!-- Questions List -->
@@ -209,15 +211,17 @@
     <!-- TAB 3: INTERACTIVE CALCULATORS -->
     <section id="tab-calculators" class="tab-pane hidden space-y-8">
       <div>
-        <h2 class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
-          Интерактивная лаборатория: 4 живых калькулятора
+        <h2 id="calculators-heading" class="text-xl md:text-2xl font-black text-slate-900 dark:text-white">
+          Интерактивная лаборатория: 2 живых симулятора (Практика 4)
         </h2>
-        <p class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
-          Проверьте расчеты своими руками! Вводите реальные матрицы, вычисляйте конкордацию, находите медиану Кемени и моделируйте метод Черчмена-Акоффа.
+        <p id="calculators-subheading" class="text-xs md:text-sm text-slate-500 dark:text-slate-400">
+          Интерактивный конструктор функций принадлежности и пошаговый 5-этапный симулятор вывода Мамдани с дефаззификацией.
         </p>
       </div>
 
-      <!-- CALC 1: Concordance -->
+            <!-- PR-3 CALCULATORS CONTAINER -->
+      <div id="pr3-calculators" class="space-y-8 hidden">
+<!-- CALC 1: Concordance -->
       <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
         <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
           <div>
@@ -373,6 +377,190 @@
 
         <div id="ca-table-display"></div>
       </div>
+      </div>
+
+
+      <!-- PR-4 CALCULATORS CONTAINER -->
+      <div id="pr4-calculators" class="space-y-8">
+        <!-- PR4 CALC 1: Membership Functions Designer -->
+        <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+            <div>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
+                <span class="w-7 h-7 rounded-lg bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300 flex items-center justify-center text-sm font-black">1</span>
+                Интерактивный конструктор функций принадлежности (ФП)
+              </h3>
+              <p class="text-xs text-slate-500">Визуализация 4 видов функций принадлежности (Вопрос 5): треугольная, трапециевидная, Гауссова, S-образная. Расчет точной степени принадлежности $\mu_A(x)$ и разметка зон ядро/носитель.</p>
+            </div>
+            <div class="flex flex-wrap gap-1.5">
+              <button id="pr4-mf-preset-reset" class="px-2.5 py-1 bg-purple-50 hover:bg-purple-100 dark:bg-purple-950/60 dark:hover:bg-purple-900 text-purple-700 dark:text-purple-300 rounded-md text-xs font-semibold border border-purple-200 dark:border-purple-800 transition">
+                ↺ Сбросить параметры
+              </button>
+            </div>
+          </div>
+
+          <!-- Type Selection Pills -->
+          <div class="flex flex-wrap gap-2 mb-5">
+            <button data-mf-type="tri" class="mf-type-btn px-3.5 py-1.5 rounded-lg text-xs font-bold transition border border-indigo-600 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 shadow-sm">
+              ▲ Треугольная (trimf)
+            </button>
+            <button data-mf-type="trap" class="mf-type-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400">
+              ⏢ Трапециевидная (trapmf)
+            </button>
+            <button data-mf-type="gauss" class="mf-type-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400">
+              🔔 Гауссова (gaussmf)
+            </button>
+            <button data-mf-type="sig" class="mf-type-btn px-3.5 py-1.5 rounded-lg text-xs font-semibold transition border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400">
+              〰 S-образная сигмоида (sigmf)
+            </button>
+          </div>
+
+          <!-- Parameter Sliders Container (Dynamic based on selected type) -->
+          <div id="mf-sliders-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700/60 mb-5">
+            <!-- Injected by app.js -->
+          </div>
+
+          <!-- SVG Graph Container -->
+          <div class="relative bg-slate-900 rounded-xl p-3 border border-slate-700 mb-5 overflow-hidden">
+            <svg id="mf-svg-canvas" viewBox="0 0 600 240" class="w-full h-auto select-none font-mono text-[10px]">
+              <!-- Rendered by app.js -->
+            </svg>
+          </div>
+
+          <!-- Test Point & Measurement Panel -->
+          <div class="p-4 bg-purple-50/60 dark:bg-purple-950/30 border border-purple-100 dark:border-purple-800/40 rounded-xl flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="w-full md:w-1/2">
+              <div class="flex justify-between items-center text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
+                <span>Тестовая точка $x_{тест}$:</span>
+                <span id="mf-test-val-label" class="font-mono font-bold text-purple-700 dark:text-purple-300 text-sm">45</span>
+              </div>
+              <input type="range" id="mf-test-slider" min="0" max="100" value="45" step="0.5" class="w-full accent-purple-600 cursor-pointer">
+            </div>
+            <div class="w-full md:w-1/2 flex items-center justify-between md:justify-end gap-4 border-t md:border-t-0 pt-3 md:pt-0 border-purple-200 dark:border-purple-800/40">
+              <div class="text-right">
+                <span class="block text-[11px] uppercase tracking-wider text-slate-500 font-bold">Степень принадлежности:</span>
+                <span id="mf-result-badge" class="font-mono text-xl md:text-2xl font-black text-purple-700 dark:text-purple-300">$\mu_A(x) = 0.833$</span>
+              </div>
+              <div id="mf-zone-tag" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-100 dark:bg-purple-900/60 text-purple-800 dark:text-purple-200 border border-purple-300 dark:border-purple-700">
+                Зона перехода
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PR4 CALC 2: Mamdani Fuzzy Inference Simulator -->
+        <div class="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-5 md:p-6 shadow-sm">
+          <div class="border-b border-slate-100 dark:border-slate-700 pb-3 mb-4">
+            <div class="flex items-center gap-2">
+              <span class="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300 flex items-center justify-center text-sm font-black">2</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white">
+                Пошаговый интерактивный симулятор вывода Мамдани (Mamdani FIS)
+              </h3>
+            </div>
+            <p class="text-xs text-slate-500 mt-1">
+              Моделирование двухпараметрического нечеткого регулятора климата: визуализация всех 5 этапов (фаззификация, агрегирование $\min$, активизация клиппингом, аккумуляция $\max$ и дефаззификация методом центра тяжести).
+            </p>
+          </div>
+
+          <!-- Inputs Control Panel -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <!-- Input 1: Temperature -->
+            <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">
+                  Вход 1: Температура воздуха ($T$)
+                </label>
+                <span id="mamdani-temp-val" class="font-mono text-base font-black text-rose-600 dark:text-rose-400">27.0 °C</span>
+              </div>
+              <input type="range" id="mamdani-temp-slider" min="15" max="35" step="0.5" value="27" class="w-full accent-rose-600 cursor-pointer mb-2">
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                <span>15°C (Холодно)</span>
+                <span>23.5°C (Комфортно)</span>
+                <span>35°C (Жарко)</span>
+              </div>
+            </div>
+
+            <!-- Input 2: Humidity -->
+            <div class="p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div class="flex justify-between items-center mb-1">
+                <label class="text-xs font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
+                  Вход 2: Влажность воздуха ($H$)
+                </label>
+                <span id="mamdani-hum-val" class="font-mono text-base font-black text-cyan-600 dark:text-cyan-400">65 %</span>
+              </div>
+              <input type="range" id="mamdani-hum-slider" min="20" max="80" step="1" value="65" class="w-full accent-cyan-600 cursor-pointer mb-2">
+              <div class="flex justify-between text-[11px] text-slate-400 font-mono">
+                <span>20% (Сухо)</span>
+                <span>50% (Средняя)</span>
+                <span>80% (Влажно)</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5 Steps Breakdown Cards -->
+          <div class="space-y-4">
+            <!-- Step 1 & 2 Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <!-- Step 1: Fuzzification -->
+              <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">
+                  <span>Этап 1: Фаззификация входов</span>
+                </div>
+                <div id="mamdani-fuzz-output" class="space-y-2 text-xs">
+                  <!-- Dynamic -->
+                </div>
+              </div>
+
+              <!-- Step 2: Aggregation -->
+              <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+                <div class="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-700 text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">
+                  <span>Этап 2: Агрегирование подусловий (&alpha; = min)</span>
+                </div>
+                <div id="mamdani-rules-output" class="space-y-2 text-xs">
+                  <!-- Dynamic -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3 & 4: Activation & Accumulation Visual Graph -->
+            <div class="p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+              <div class="flex flex-wrap items-center justify-between gap-2 mb-3 pb-2 border-b border-slate-100 dark:border-slate-700">
+                <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">
+                  Этапы 3 и 4: Активизация срезов (min) & Аккумуляция (max)
+                </span>
+                <span class="text-[11px] text-slate-400 font-mono">Выход: Мощность охлаждения P &isin; [0, 100]%</span>
+              </div>
+              <div class="bg-slate-900 rounded-xl p-3 border border-slate-700 overflow-hidden mb-3">
+                <svg id="mamdani-accum-svg" viewBox="0 0 600 180" class="w-full h-auto font-mono text-[10px]">
+                  <!-- Dynamic SVG -->
+                </svg>
+              </div>
+            </div>
+
+            <!-- Step 5: Defuzzification & Result -->
+            <div class="p-5 bg-gradient-to-r from-emerald-50 via-teal-50 to-emerald-50 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-950/40 rounded-xl border border-emerald-200 dark:border-emerald-800/60 shadow-sm">
+              <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <div>
+                  <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-1">
+                    <span>Этап 5: Дефаззификация (Метод центра тяжести Centroid)</span>
+                  </div>
+                  <p id="mamdani-formula-calc" class="text-xs text-slate-700 dark:text-slate-300 font-mono">
+                    $$P^* = \frac{\sum P_i \cdot \mu(P_i)}{\sum \mu(P_i)} = \mathbf{74.2\%}$$
+                  </p>
+                  <p id="mamdani-verdict-text" class="text-sm font-semibold text-emerald-900 dark:text-emerald-200 mt-2">
+                    Режим: Интенсивное кондиционирование (высокая нагрузка).
+                  </p>
+                </div>
+                <div class="text-center md:text-right bg-white dark:bg-slate-900 p-4 rounded-xl border border-emerald-300 dark:border-emerald-700/80 shadow-md">
+                  <span class="text-[10px] uppercase font-bold text-slate-500 block">Четкое значение мощности $P^*$:</span>
+                  <span id="mamdani-final-val" class="font-mono text-3xl font-black text-emerald-600 dark:text-emerald-400">74.2 %</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </section>
 
     <!-- TAB 4: FLASHCARDS -->
