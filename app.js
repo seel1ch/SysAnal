@@ -14,6 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const state = {
     currentPr: initialPr,
     activeTab: 'cheatsheet',
+    answerMode: localStorage.getItem('sa_answer_mode') || 'concise', // 'concise' or 'detailed'
     searchQuery: '',
     learnedQuestions: new Set(JSON.parse(localStorage.getItem(`sa_learned_${initialPr}`) || (initialPr === 'pr3' ? localStorage.getItem('sa_learned') || '[]' : '[]'))),
     flashcards: [...(window.PR_DATA ? window.PR_DATA[initialPr].flashcards : APP_DATA.flashcards)],
@@ -319,18 +320,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Render Questions (Cheat Sheet)
+    // Render Questions (Cheat Sheet)
   function renderQuestions() {
     const container = document.getElementById('questions-container');
     if (!container) return;
 
+    const isDetailed = state.answerMode === 'detailed';
     const query = state.searchQuery.toLowerCase().trim();
     const filtered = window.APP_DATA.questions.filter(q => {
       if (!query) return true;
+      const shortText = (isDetailed && q.shortAnswerOriginal) ? q.shortAnswerOriginal : q.shortAnswer;
+      const oralText = (isDetailed && q.oralDefenseOriginal) ? q.oralDefenseOriginal : q.oralDefense;
       return (
         q.title.toLowerCase().includes(query) ||
+        shortText.toLowerCase().includes(query) ||
         q.shortAnswer.toLowerCase().includes(query) ||
+        (q.shortAnswerOriginal && q.shortAnswerOriginal.toLowerCase().includes(query)) ||
         (q.lectureExcerpt && q.lectureExcerpt.toLowerCase().includes(query)) ||
+        oralText.toLowerCase().includes(query) ||
         q.oralDefense.toLowerCase().includes(query) ||
+        (q.oralDefenseOriginal && q.oralDefenseOriginal.toLowerCase().includes(query)) ||
         (q.tags && q.tags.some(t => t.toLowerCase().includes(query)))
       );
     });
@@ -352,6 +361,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = filtered.map(q => {
       const isLearned = state.learnedQuestions.has(q.id);
+      const isDetailed = state.answerMode === 'detailed';
+      const shortText = (isDetailed && q.shortAnswerOriginal) ? q.shortAnswerOriginal : q.shortAnswer;
+      const oralText = (isDetailed && q.oralDefenseOriginal) ? q.oralDefenseOriginal : q.oralDefense;
+      const modeBadge = isDetailed
+        ? `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300">📖 Исходная версия</span>`
+        : `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300">⚡ Краткая выжимка</span>`;
+
       return `
         <article class="bg-white dark:bg-slate-800 rounded-xl border ${isLearned ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50/20' : 'border-slate-200 dark:border-slate-700'} shadow-sm hover:shadow-md transition-all duration-200 p-5 md:p-6 mb-5" id="question-${q.id}">
           <header class="flex flex-wrap items-start justify-between gap-3 border-b border-slate-100 dark:border-slate-700/60 pb-4 mb-4">
@@ -377,12 +393,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- 1. Выжимка без лишних слов -->
           <div class="mb-4 p-3.5 bg-indigo-50/70 dark:bg-indigo-950/40 border-l-4 border-indigo-500 rounded-r-lg">
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-indigo-800 dark:text-indigo-300 mb-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              Суть ответа (без лишних слов):
+            <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-indigo-800 dark:text-indigo-300 mb-1.5">
+              <span class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                Суть ответа (без лишних слов):
+              </span>
+              ${modeBadge}
             </div>
-            <p class="text-sm md:text-base text-slate-800 dark:text-slate-200 font-medium leading-relaxed">${q.shortAnswer}</p>
+            <p class="text-sm md:text-base text-slate-800 dark:text-slate-200 font-medium leading-relaxed">${shortText}</p>
           </div>
+
+          <!-- Словесное чтение формул (если есть формулы) -->
+          ${q.formulaReading ? `
+            <div class="mb-4 p-3.5 bg-emerald-50/80 dark:bg-emerald-950/40 border-l-4 border-emerald-500 rounded-r-lg">
+              <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 dark:text-emerald-300 mb-1.5">
+                <svg class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z" />
+                </svg>
+                🗣 Словесное чтение формул (как произнести вслух на защите):
+              </div>
+              <div class="text-xs md:text-sm text-slate-700 dark:text-slate-300 space-y-2 leading-relaxed">
+                ${q.formulaReading}
+              </div>
+            </div>
+          ` : ''}
 
           <!-- 2. Суть ответа из лекции (как есть) -->
           <div class="mb-4 p-3.5 bg-sky-50/80 dark:bg-sky-950/40 border-l-4 border-sky-500 rounded-r-lg">
@@ -402,11 +436,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
           <!-- 3. Как сказать преподавателю своими словами -->
           <div class="mb-4 p-3.5 bg-amber-50/70 dark:bg-amber-950/40 border-l-4 border-amber-500 rounded-r-lg">
-            <div class="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-1">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
-              Как сказать преподавателю своими словами:
+            <div class="flex items-center justify-between text-xs font-bold uppercase tracking-wider text-amber-800 dark:text-amber-300 mb-1.5">
+              <span class="flex items-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+                Как сказать преподавателю своими словами:
+              </span>
+              ${modeBadge}
             </div>
-            <p class="text-xs md:text-sm text-slate-700 dark:text-slate-300 italic leading-relaxed">${q.oralDefense}</p>
+            <p class="text-xs md:text-sm text-slate-700 dark:text-slate-300 italic leading-relaxed">${oralText}</p>
           </div>
 
           <!-- 4. Раскрывающийся блок теории и формул -->
@@ -447,7 +484,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const qId = parseInt(btn.dataset.questionId, 10);
         const question = window.APP_DATA.questions.find(q => q.id === qId);
         if (question) {
-          const speechContent = `${question.title}. Суть ответа: ${question.shortAnswer}. Своими словами: ${question.oralDefense}`;
+          const isDetailed = state.answerMode === 'detailed';
+          const shortText = (isDetailed && question.shortAnswerOriginal) ? question.shortAnswerOriginal : question.shortAnswer;
+          const oralText = (isDetailed && question.oralDefenseOriginal) ? question.oralDefenseOriginal : question.oralDefense;
+          const speechContent = `${question.title}. Суть ответа: ${shortText}. Своими словами: ${oralText}`;
           speakText(speechContent, qId);
         }
       });
@@ -464,9 +504,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     renderMath();
   }
-
-  // Render Theory Sections
-  function renderTheory() {
+function renderTheory() {
     const container = document.getElementById('theory-container');
     if (!container) return;
 
@@ -1786,10 +1824,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+
+  // -------------------------------------------------------------
+  // ANSWER FORMULATION MODE (Concise vs Detailed/Original)
+  // -------------------------------------------------------------
+  function updateAnswerModeUI() {
+    const btnConcise = document.getElementById('btn-mode-concise');
+    const btnDetailed = document.getElementById('btn-mode-detailed');
+    if (!btnConcise || !btnDetailed) return;
+
+    const isDetailed = state.answerMode === 'detailed';
+    if (isDetailed) {
+      btnDetailed.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30';
+      btnConcise.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+    } else {
+      btnConcise.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30';
+      btnDetailed.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+    }
+  }
+
+  function initAnswerMode() {
+    updateAnswerModeUI();
+
+    document.getElementById('btn-mode-concise')?.addEventListener('click', () => {
+      if (state.answerMode === 'concise') return;
+      state.answerMode = 'concise';
+      localStorage.setItem('sa_answer_mode', 'concise');
+      updateAnswerModeUI();
+      renderQuestions();
+    });
+
+    document.getElementById('btn-mode-detailed')?.addEventListener('click', () => {
+      if (state.answerMode === 'detailed') return;
+      state.answerMode = 'detailed';
+      localStorage.setItem('sa_answer_mode', 'detailed');
+      updateAnswerModeUI();
+      renderQuestions();
+    });
+  }
+
   // -------------------------------------------------------------
   // INITIAL BOOTSTRAP
   // -------------------------------------------------------------
   initTheme();
+  initAnswerMode();
+
   switchPractical(state.currentPr);
 
   // Initialize PR-3 Calculators
