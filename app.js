@@ -325,21 +325,30 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('questions-container');
     if (!container) return;
 
-    const isDetailed = state.answerMode === 'detailed';
+    const mode = state.answerMode; // 'concise', 'detailed', or 'chicken'
     const query = state.searchQuery.toLowerCase().trim();
     const filtered = window.APP_DATA.questions.filter(q => {
       if (!query) return true;
-      const shortText = (isDetailed && q.shortAnswerOriginal) ? q.shortAnswerOriginal : q.shortAnswer;
-      const oralText = (isDetailed && q.oralDefenseOriginal) ? q.oralDefenseOriginal : q.oralDefense;
+      let shortText = q.shortAnswer;
+      let oralText = q.oralDefense;
+      if (mode === 'chicken') {
+        shortText = q.shortAnswerChicken || q.shortAnswer;
+        oralText = q.oralDefenseChicken || q.oralDefense;
+      } else if (mode === 'detailed') {
+        shortText = q.shortAnswerOriginal || q.shortAnswer;
+        oralText = q.oralDefenseOriginal || q.oralDefense;
+      }
       return (
         q.title.toLowerCase().includes(query) ||
         shortText.toLowerCase().includes(query) ||
         q.shortAnswer.toLowerCase().includes(query) ||
         (q.shortAnswerOriginal && q.shortAnswerOriginal.toLowerCase().includes(query)) ||
+        (q.shortAnswerChicken && q.shortAnswerChicken.toLowerCase().includes(query)) ||
         (q.lectureExcerpt && q.lectureExcerpt.toLowerCase().includes(query)) ||
         oralText.toLowerCase().includes(query) ||
         q.oralDefense.toLowerCase().includes(query) ||
         (q.oralDefenseOriginal && q.oralDefenseOriginal.toLowerCase().includes(query)) ||
+        (q.oralDefenseChicken && q.oralDefenseChicken.toLowerCase().includes(query)) ||
         (q.tags && q.tags.some(t => t.toLowerCase().includes(query)))
       );
     });
@@ -361,12 +370,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     container.innerHTML = filtered.map(q => {
       const isLearned = state.learnedQuestions.has(q.id);
-      const isDetailed = state.answerMode === 'detailed';
-      const shortText = (isDetailed && q.shortAnswerOriginal) ? q.shortAnswerOriginal : q.shortAnswer;
-      const oralText = (isDetailed && q.oralDefenseOriginal) ? q.oralDefenseOriginal : q.oralDefense;
-      const modeBadge = isDetailed
-        ? `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300">📖 Исходная версия</span>`
-        : `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300">⚡ Краткая выжимка</span>`;
+      let shortText = q.shortAnswer;
+      let oralText = q.oralDefense;
+      let modeBadge = '';
+
+      if (mode === 'chicken') {
+        shortText = q.shortAnswerChicken || q.shortAnswer;
+        oralText = q.oralDefenseChicken || q.oralDefense;
+        modeBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-semibold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900 dark:bg-amber-900/60 dark:text-amber-200">🐥 Вариант «Цыплёнок»</span>`;
+      } else if (mode === 'detailed') {
+        shortText = q.shortAnswerOriginal || q.shortAnswer;
+        oralText = q.oralDefenseOriginal || q.oralDefense;
+        modeBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-sky-100 text-sky-800 dark:bg-sky-900/60 dark:text-sky-300">📖 Исходная версия</span>`;
+      } else {
+        modeBadge = `<span class="inline-flex items-center gap-1 text-[11px] font-medium px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 dark:bg-amber-900/60 dark:text-amber-300">⚡ Краткая выжимка</span>`;
+      }
 
       return `
         <article class="bg-white dark:bg-slate-800 rounded-xl border ${isLearned ? 'border-emerald-400 dark:border-emerald-600 bg-emerald-50/20' : 'border-slate-200 dark:border-slate-700'} shadow-sm hover:shadow-md transition-all duration-200 p-5 md:p-6 mb-5" id="question-${q.id}">
@@ -484,9 +502,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const qId = parseInt(btn.dataset.questionId, 10);
         const question = window.APP_DATA.questions.find(q => q.id === qId);
         if (question) {
-          const isDetailed = state.answerMode === 'detailed';
-          const shortText = (isDetailed && question.shortAnswerOriginal) ? question.shortAnswerOriginal : question.shortAnswer;
-          const oralText = (isDetailed && question.oralDefenseOriginal) ? question.oralDefenseOriginal : question.oralDefense;
+          const mode = state.answerMode;
+          let shortText = question.shortAnswer;
+          let oralText = question.oralDefense;
+          if (mode === 'chicken') {
+            shortText = question.shortAnswerChicken || question.shortAnswer;
+            oralText = question.oralDefenseChicken || question.oralDefense;
+          } else if (mode === 'detailed') {
+            shortText = question.shortAnswerOriginal || question.shortAnswer;
+            oralText = question.oralDefenseOriginal || question.oralDefense;
+          }
           const speechContent = `${question.title}. Суть ответа: ${shortText}. Своими словами: ${oralText}`;
           speakText(speechContent, qId);
         }
@@ -1826,20 +1851,23 @@ function renderTheory() {
 
 
   // -------------------------------------------------------------
-  // ANSWER FORMULATION MODE (Concise vs Detailed/Original)
+  // ANSWER FORMULATION MODE (Concise vs Detailed vs Chicken)
   // -------------------------------------------------------------
   function updateAnswerModeUI() {
     const btnConcise = document.getElementById('btn-mode-concise');
     const btnDetailed = document.getElementById('btn-mode-detailed');
+    const btnChicken = document.getElementById('btn-mode-chicken');
     if (!btnConcise || !btnDetailed) return;
 
-    const isDetailed = state.answerMode === 'detailed';
-    if (isDetailed) {
-      btnDetailed.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30';
-      btnConcise.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
-    } else {
-      btnConcise.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30';
-      btnDetailed.className = 'flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white';
+    const mode = state.answerMode;
+    const activeClass = 'flex-1 sm:flex-none px-3 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30';
+    const activeChickenClass = 'flex-1 sm:flex-none px-3 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-amber-50 dark:bg-slate-800 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-500/50 ring-1 ring-amber-400/40';
+    const inactiveClass = 'flex-1 sm:flex-none px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-transparent';
+
+    btnConcise.className = mode === 'concise' ? activeClass : inactiveClass;
+    btnDetailed.className = mode === 'detailed' ? activeClass : inactiveClass;
+    if (btnChicken) {
+      btnChicken.className = mode === 'chicken' ? activeChickenClass : inactiveClass;
     }
   }
 
@@ -1858,6 +1886,14 @@ function renderTheory() {
       if (state.answerMode === 'detailed') return;
       state.answerMode = 'detailed';
       localStorage.setItem('sa_answer_mode', 'detailed');
+      updateAnswerModeUI();
+      renderQuestions();
+    });
+
+    document.getElementById('btn-mode-chicken')?.addEventListener('click', () => {
+      if (state.answerMode === 'chicken') return;
+      state.answerMode = 'chicken';
+      localStorage.setItem('sa_answer_mode', 'chicken');
       updateAnswerModeUI();
       renderQuestions();
     });

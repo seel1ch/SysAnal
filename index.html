@@ -189,18 +189,22 @@
           </div>
           <div>
             <div class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200">Режим формулировки ответов</div>
-            <div class="text-[11px] text-slate-500 dark:text-slate-400">Переключение между новой краткой выжимкой (без скобок) и исходной версией</div>
+            <div class="text-[11px] text-slate-500 dark:text-slate-400">Переключение между краткой выжимкой, исходной версией и вариантом «🐥 Цыпленок»</div>
           </div>
         </div>
 
-        <div class="inline-flex rounded-lg p-1 bg-slate-100 dark:bg-slate-700/70 border border-slate-200/80 dark:border-slate-600 self-stretch sm:self-auto" id="answer-mode-toggle" role="group">
-          <button type="button" id="btn-mode-concise" title="Компактная выжимка только главного для быстрого заучивания" class="flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30">
+        <div class="inline-flex rounded-lg p-1 bg-slate-100 dark:bg-slate-700/70 border border-slate-200/80 dark:border-slate-600 self-stretch sm:self-auto flex-wrap sm:flex-nowrap gap-1" id="answer-mode-toggle" role="group">
+          <button type="button" id="btn-mode-concise" title="Компактная выжимка только главного для быстрого заучивания" class="flex-1 sm:flex-none px-3 py-1.5 text-xs font-bold rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 shadow-sm bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-500/30">
             <svg class="w-3.5 h-3.5 text-amber-500" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"></path></svg>
-            <span>⚡ Краткие ответы (новые)</span>
+            <span>⚡ Краткие</span>
           </button>
-          <button type="button" id="btn-mode-detailed" title="Исходные подробные формулировки с развернутыми пояснениями" class="flex-1 sm:flex-none px-3.5 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white">
+          <button type="button" id="btn-mode-detailed" title="Исходные подробные формулировки с развернутыми пояснениями" class="flex-1 sm:flex-none px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-transparent">
             <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-            <span>📖 Развернутые ответы (исходные)</span>
+            <span>📖 Развернутые</span>
+          </button>
+          <button type="button" id="btn-mode-chicken" title="Вариант «Цыпленок» — простые человеческие формулировки" class="flex-1 sm:flex-none px-3 py-1.5 text-xs font-medium rounded-md transition-all duration-150 flex items-center justify-center gap-1.5 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-transparent">
+            <span class="text-sm">🐥</span>
+            <span>🐥 Цыпленок</span>
           </button>
         </div>
       </div>
